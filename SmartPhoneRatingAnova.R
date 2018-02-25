@@ -1,15 +1,15 @@
-r.smartphone <- c(t(as.matrix(SmartPhoneRating))) #response data
+r.phone <- c(t(as.matrix(SmartPhoneRating))) #response data
 
-f1 <- c("AT&T", "Sprint", "T-Mobile", "Verizon") #1st factor levels
-f2 <- c(">= 150", "< 150") #2nd factor levels
-k1 <- length(f1)  
-k2 <- length(f2)
-n.sp <- 3 #observations per treatment
+f1.phone <- c("AT&T", "Sprint", "T-Mobile", "Verizon") #1st factor levels
+f2.phone <- c(">= 150", "< 150") #2nd factor levels
+k1.phone <- length(f1.phone)  
+k2.phone <- length(f2.phone)
+n.phone <- 3 #observations per treatment
 
-tm1 <- gl(k1, 1, n.sp*k1*k2, factor(f1))
+tm1.phone <- gl(k1.phone, 1, n.phone*k1.phone*k2.phone, factor(f1.phone))
 
-tm2 <- gl(k2, n*k1, n*k1*k2, factor(f2))
+tm2.phone <- gl(k2.phone, n.phone*k1.phone, n.phone*k1.phone*k2.phone, factor(f2.phone))
 
-av.smartphone <- aov(r.smartphone ~ tm1 * tm2) #include interaction
+av.phone <- aov(r.phone ~ tm1.phone * tm2.phone)
 
-summary(av.smartphone)
+summary(av.phone)

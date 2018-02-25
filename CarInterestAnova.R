@@ -1,8 +1,8 @@
-r <- c(t(as.matrix(carInterestRate))) #response data
-f <- c("Atlanta", "Chicago", "Houston", "Memphis", "New York", "Philadelphia") #treatment levels
-k <- 6 #number of treatment levels
-n <- 9 #observations per treatmentv
-tm <- gl(k, 1, n*k, factor(f)) #matching treatments
-av <- aov(r ~ tm)
+r.car <- c(t(as.matrix(carInterestRate))) #response data
+f.car <- c("Atlanta", "Chicago", "Houston", "Memphis", "New York", "Philadelphia") #treatment levels
+k.car <- 6 #number of treatment levels
+n.car <- 9 #observations per treatmentv
+tm.car <- gl(k.car, 1, n.car*k.car, factor(f.car)) #matching treatments
+av.car <- aov(r.car ~ tm.car)
 
-summary(av)
+summary(av.car)
