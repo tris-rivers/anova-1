@@ -1,15 +1,17 @@
-r.salary <- c(t(as.matrix(ProfessorSalary)))
+r.prof <- c(t(as.matrix(ProfessorSalary)))
 
-f1.salary <- c("Assistant Professor", "Associate Professor", "Full Professor")
-f2.salary <- c("Male", "Female")
-k1.salary <- length(f1.salary)
-k2.salary <- length(f2.salary)
+f1.prof <- c("Assistant Professor", "Associate Professor", "Full Professor")
+f2.prof <- c("Male", "Female")
+k1.prof <- length(f1.prof)
+k2.prof <- length(f2.prof)
 n <- 10
 
-tm1.salary <- gl(k1.salary, 1, n*k1.salary*k2.salary, factor(f1.salary))
+tm1.rank <- gl(k1.prof, 1, n*k1.prof*k2.prof, factor(f1.prof))
 
-tm2.salary <- gl(k2.salary, n*k1.salary, n*k1.salary*k2.salary, factor(f2.salary))
+tm2.gender <- gl(k2.prof, n*k1.prof, n*k1.prof*k2.prof, factor(f2.prof))
 
-av.salary <- aov(r.salary ~ tm1.salary * tm2.salary)
+av.prof <- aov(r.prof ~ tm1.rank * tm2.gender)
 
-summary(av.salary)
+summary(av.prof)
+
+interaction.plot(tm1.rank, tm2.gender, r.prof)

@@ -6,3 +6,6 @@ tm.car <- gl(k.car, 1, n.car*k.car, factor(f.car)) #matching treatments
 av.car <- aov(r.car ~ tm.car)
 
 summary(av.car)
+
+tukey.carinterest <- TukeyHSD(av.car, conf.level = 0.99)
+plot(tukey.carinterest, col="#F1C40F")

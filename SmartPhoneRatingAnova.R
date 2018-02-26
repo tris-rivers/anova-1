@@ -6,10 +6,10 @@ k1.phone <- length(f1.phone)
 k2.phone <- length(f2.phone)
 n.phone <- 3 #observations per treatment
 
-tm1.phone <- gl(k1.phone, 1, n.phone*k1.phone*k2.phone, factor(f1.phone))
+tm.supplier <- gl(k1.phone, 1, n.phone*k1.phone*k2.phone, factor(f1.phone))
 
-tm2.phone <- gl(k2.phone, n.phone*k1.phone, n.phone*k1.phone*k2.phone, factor(f2.phone))
+tm.cost <- gl(k2.phone, n.phone*k1.phone, n.phone*k1.phone*k2.phone, factor(f2.phone))
 
-av.phone <- aov(r.phone ~ tm1.phone * tm2.phone)
+av.phone <- aov(r.phone ~ tm.supplier * tm.cost)
 
 summary(av.phone)
